@@ -272,3 +272,18 @@ button:hover {
   color: white;
   border: none;
 }
+.slider {
+  width: 300px;
+  margin: auto;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+  border-radius: 10px;
+}
+
+.slide.active {
+  display: block;
+}

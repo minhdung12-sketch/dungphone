@@ -1,286 +1,200 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Dũng Phone</title>
+<meta charset="UTF-8">
+<title>Dũng Phone</title>
 
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #f5f5f5;
-      text-align: center;
-    }
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f5f5f5;
+}
 
-    /* HEADER */
-    .header {
-      background: black;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
+/* TOPBAR */
+.topbar{
+  background:black;
+  color:white;
+  text-align:center;
+  padding:8px;
+}
 
-    .header a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-    }
+/* MENU */
+.menu{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:#222;
+  padding:10px;
+}
+.menu a{
+  color:white;
+  text-decoration:none;
+}
 
-    /* FLASH */
-    .flash {
-      background: red;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-    }
+/* BANNER */
+.banner img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
 
-    /* CONTAINER */
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 20px;
-    }
+/* FLASH */
+.flash{
+  background:red;
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-weight:bold;
+  animation:nhapnhay 1s infinite;
+}
+@keyframes nhapnhay{
+  0%{opacity:1}
+  50%{opacity:0.5}
+  100%{opacity:1}
+}
 
-    /* CARD */
-    .card {
-      width: 180px;
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      position: relative;
-    }
+/* PRODUCT */
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:20px;
+  justify-content:center;
+}
+.card{
+  background:white;
+  padding:10px;
+  width:200px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 0 5px #ccc;
+}
+.card img{
+  width:100%;
+}
+.old{
+  text-decoration:line-through;
+  color:gray;
+}
+.new{
+  color:red;
+  font-weight:bold;
+}
+button{
+  padding:10px;
+  background:red;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
+/* CONTACT */
+.contact{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    /* PRICE */
-    .old {
-      text-decoration: line-through;
-      color: gray;
-      font-size: 14px;
-    }
-
-    .new {
-      color: red;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    /* SALE BADGE */
-    .card::before {
-      content: "-30%";
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      background: red;
-      color: white;
-      padding: 3px 6px;
-      font-size: 12px;
-      border-radius: 5px;
-    }
-
-    /* BUTTON */
-    button {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: none;
-      border-radius: 5px;
-      background: black;
-      color: white;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: red;
-    }
-
-    /* CART */
-    #cart-list {
-      background: white;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
-    }
-  </style>
+/* FLOAT BUTTON */
+.call, .zalo{
+  position:fixed;
+  right:10px;
+  padding:10px;
+  color:white;
+  border-radius:50%;
+  text-align:center;
+}
+.call{
+  bottom:80px;
+  background:green;
+}
+.zalo{
+  bottom:20px;
+  background:blue;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div>
-    <a href="#">Trang chủ</a>
-    <a href="#">Sản phẩm</a>
-    <a href="#">Liên hệ</a>
-  </div>
-
-  <div>
-    🛒 (<span id="count">0</span>)
-  </div>
+<!-- TOP -->
+<div class="topbar">
+📱 <b>Dũng Phone</b> | ☎ 0868968467 | 💬 Zalo: 0868968467
 </div>
 
-<!-- FLASH SALE -->
+<!-- MENU -->
+<div class="menu">
+<a href="#">Trang chủ</a>
+<a href="#product">Sản phẩm</a>
+<a href="#contact">Liên hệ</a>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+<img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5">
+</div>
+
+<!-- FLASH -->
 <div class="flash">
-  ⚡ Flash Sale kết thúc sau: <span id="time">10:00</span>
+⚡ Flash Sale kết thúc sau: <span id="time">10:00</span>
 </div>
 
-<!-- SẢN PHẨM -->
-<div class="container">
+<!-- PRODUCT -->
+<div class="container" id="product">
 
-  <!-- IPHONE 5 -->
-  <div class="card" data-name="iphone 5" data-price="1000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-5-ofic.jpg">
-    <h3>iPhone 5</h3>
-    <p><span class="old">2.000.000đ</span><br><span class="new">1.000.000đ</span></p>
-    <button onclick="add('iPhone 5',1000000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-5-ofic.jpg"><h3>iPhone 5</h3><p><span class="new">1.000.000đ</span></p><button onclick="add('iPhone 5',1000000)">Mua</button></div>
 
-  <!-- IPHONE 6 -->
-  <div class="card" data-name="iphone 6" data-price="1500000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-6-1.jpg">
-    <h3>iPhone 6</h3>
-    <p><span class="old">3.000.000đ</span><br><span class="new">1.500.000đ</span></p>
-    <button onclick="add('iPhone 6',1500000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-6-1.jpg"><h3>iPhone 6</h3><p><span class="new">1.500.000đ</span></p><button onclick="add('iPhone 6',1500000)">Mua</button></div>
 
-  <!-- IPHONE 7 -->
-  <div class="card" data-name="iphone 7" data-price="2500000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-7-1.jpg">
-    <h3>iPhone 7</h3>
-    <p><span class="old">4.000.000đ</span><br><span class="new">2.500.000đ</span></p>
-    <button onclick="add('iPhone 7',2500000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-7-1.jpg"><h3>iPhone 7</h3><p><span class="new">2.500.000đ</span></p><button onclick="add('iPhone 7',2500000)">Mua</button></div>
 
-  <!-- IPHONE 8 -->
-  <div class="card" data-name="iphone 8" data-price="3500000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-8-new-1.jpg">
-    <h3>iPhone 8</h3>
-    <p><span class="old">5.000.000đ</span><br><span class="new">3.500.000đ</span></p>
-    <button onclick="add('iPhone 8',3500000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-new-1.jpg"><h3>iPhone X</h3><p><span class="new">4.500.000đ</span></p><button onclick="add('iPhone X',4500000)">Mua</button></div>
 
-  <!-- IPHONE X -->
-  <div class="card" data-name="iphone x" data-price="4500000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-new-1.jpg">
-    <h3>iPhone X</h3>
-    <p><span class="old">7.000.000đ</span><br><span class="new">4.500.000đ</span></p>
-    <button onclick="add('iPhone X',4500000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-new-1.jpg"><h3>iPhone 11</h3><p><span class="new">7.000.000đ</span></p><button onclick="add('iPhone 11',7000000)">Mua</button></div>
 
-  <!-- XR -->
-  <div class="card" data-name="iphone xr" data-price="5000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xr-new-1.jpg">
-    <h3>iPhone XR</h3>
-    <p><span class="old">7.500.000đ</span><br><span class="new">5.000.000đ</span></p>
-    <button onclick="add('iPhone XR',5000000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-new-1.jpg"><h3>iPhone 12</h3><p><span class="new">9.000.000đ</span></p><button onclick="add('iPhone 12',9000000)">Mua</button></div>
 
-  <!-- XS -->
-  <div class="card" data-name="iphone xs" data-price="5500000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xs-new-1.jpg">
-    <h3>iPhone XS</h3>
-    <p><span class="old">8.000.000đ</span><br><span class="new">5.500.000đ</span></p>
-    <button onclick="add('iPhone XS',5500000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-new-1.jpg"><h3>iPhone 13</h3><p><span class="new">11.000.000đ</span></p><button onclick="add('iPhone 13',11000000)">Mua</button></div>
 
-  <!-- XS MAX -->
-  <div class="card" data-name="iphone xs max" data-price="6500000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xs-max-new-1.jpg">
-    <h3>iPhone XS Max</h3>
-    <p><span class="old">9.000.000đ</span><br><span class="new">6.500.000đ</span></p>
-    <button onclick="add('iPhone XS Max',6500000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-new-1.jpg"><h3>iPhone 14</h3><p><span class="new">14.000.000đ</span></p><button onclick="add('iPhone 14',14000000)">Mua</button></div>
 
-  <!-- IPHONE 11 -->
-  <div class="card" data-name="iphone 11" data-price="7000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-new-1.jpg">
-    <h3>iPhone 11</h3>
-    <p><span class="old">9.000.000đ</span><br><span class="new">7.000.000đ</span></p>
-    <button onclick="add('iPhone 11',7000000)">Mua</button>
-  </div>
-
-  <!-- 11 PRO MAX -->
-  <div class="card" data-name="iphone 11 pro max" data-price="10000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-pro-max-1.jpg">
-    <h3>iPhone 11 Pro Max</h3>
-    <p><span class="old">13.000.000đ</span><br><span class="new">10.000.000đ</span></p>
-    <button onclick="add('iPhone 11 Pro Max',10000000)">Mua</button>
-  </div>
-
-  <!-- IPHONE 12 -->
-  <div class="card" data-name="iphone 12" data-price="9000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-new-1.jpg">
-    <h3>iPhone 12</h3>
-    <p><span class="old">12.000.000đ</span><br><span class="new">9.000.000đ</span></p>
-    <button onclick="add('iPhone 12',9000000)">Mua</button>
-  </div>
-
-  <!-- 12 PRO MAX -->
-  <div class="card" data-name="iphone 12 pro max" data-price="13000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-pro-max-1.jpg">
-    <h3>iPhone 12 Pro Max</h3>
-    <p><span class="old">16.000.000đ</span><br><span class="new">13.000.000đ</span></p>
-    <button onclick="add('iPhone 12 Pro Max',13000000)">Mua</button>
-  </div>
-
-  <!-- IPHONE 13 -->
-  <div class="card" data-name="iphone 13" data-price="11000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-new-1.jpg">
-    <h3>iPhone 13</h3>
-    <p><span class="old">14.000.000đ</span><br><span class="new">11.000.000đ</span></p>
-    <button onclick="add('iPhone 13',11000000)">Mua</button>
-  </div>
-
-  <!-- 13 PRO MAX -->
-  <div class="card" data-name="iphone 13 pro max" data-price="15000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-pro-max-1.jpg">
-    <h3>iPhone 13 Pro Max</h3>
-    <p><span class="old">18.000.000đ</span><br><span class="new">15.000.000đ</span></p>
-    <button onclick="add('iPhone 13 Pro Max',15000000)">Mua</button>
-  </div>
-
-  <!-- IPHONE 14 -->
-  <div class="card" data-name="iphone 14" data-price="14000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-new-1.jpg">
-    <h3>iPhone 14</h3>
-    <p><span class="old">17.000.000đ</span><br><span class="new">14.000.000đ</span></p>
-    <button onclick="add('iPhone 14',14000000)">Mua</button>
-  </div>
-
-  <!-- 14 PRO MAX -->
-  <div class="card" data-name="iphone 14 pro max" data-price="20000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-max-1.jpg">
-    <h3>iPhone 14 Pro Max</h3>
-    <p><span class="old">25.000.000đ</span><br><span class="new">20.000.000đ</span></p>
-    <button onclick="add('iPhone 14 Pro Max',20000000)">Mua</button>
-  </div>
-
-  <!-- IPHONE 15 -->
-  <div class="card" data-name="iphone 15" data-price="18000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-new-1.jpg">
-    <h3>iPhone 15</h3>
-    <p><span class="old">22.000.000đ</span><br><span class="new">18.000.000đ</span></p>
-    <button onclick="add('iPhone 15',18000000)">Mua</button>
-  </div>
-
-  <!-- 15 PRO MAX -->
-  <div class="card" data-name="iphone 15 pro max" data-price="30000000">
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-1.jpg">
-    <h3>iPhone 15 Pro Max</h3>
-    <p><span class="old">35.000.000đ</span><br><span class="new">30.000.000đ</span></p>
-    <button onclick="add('iPhone 15 Pro Max',30000000)">Mua</button>
-  </div>
+<div class="card"><img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-new-1.jpg"><h3>iPhone 15</h3><p><span class="new">18.000.000đ</span></p><button onclick="add('iPhone 15',18000000)">Mua</button></div>
 
 </div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+<h2>Liên hệ Dũng Phone</h2>
+<p>☎ 0868968467</p>
+<p>💬 Zalo: 0868968467</p>
+<p>📍 Tự Thôn - Nam Sơn - TP Bắc Ninh</p>
+</div>
+
+<!-- FLOAT BUTTON -->
+<a class="call" href="tel:0868968467">📞</a>
+<a class="zalo" href="https://zalo.me/0868968467" target="_blank">💬</a>
+
+<script>
+let cart=[];
+
+function add(name,price){
+  cart.push({name,price});
+  localStorage.setItem("cart",JSON.stringify(cart));
+  alert("Đã thêm vào giỏ");
+}
+
+/* FLASH SALE */
+let time=600;
+setInterval(()=>{
+  let m=Math.floor(time/60);
+  let s=time%60;
+  document.getElementById("time").innerText=
+  m+":"+(s<10?"0"+s:s);
+  if(time>0) time--;
+},1000);
+</script>
+
+</body>
+</html>

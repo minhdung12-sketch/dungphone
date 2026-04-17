@@ -232,3 +232,30 @@ button:hover {
   bottom: 80px;
   background: blue;
 }
+.tools {
+  margin: 20px;
+  text-align: center;
+}
+
+.tools input, .tools select {
+  padding: 10px;
+  margin: 5px;
+}
+
+.noti {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  animation: fade 3s;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  20% {opacity: 1;}
+  80% {opacity: 1;}
+  100% {opacity: 0;}
+}

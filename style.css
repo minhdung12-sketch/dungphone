@@ -259,3 +259,16 @@ button:hover {
   80% {opacity: 1;}
   100% {opacity: 0;}
 }
+.home {
+  text-align: center;
+  padding: 40px;
+  background: black;
+  color: white;
+}
+
+.home button {
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border: none;
+}

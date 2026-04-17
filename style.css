@@ -318,3 +318,6 @@ button:hover {
   animation: blink 1s infinite;
   font-weight: bold;
 }
+.flash {
+  animation: blink 1.5s infinite;
+}

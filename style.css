@@ -122,3 +122,17 @@ button:hover {
   background: black;
   color: white;
 }
+.call-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: green;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+}
+.call-btn a {
+  color: white;
+  text-decoration: none;
+}

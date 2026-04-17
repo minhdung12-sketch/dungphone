@@ -1,115 +1,138 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Dũng Apple</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+// ===== GIỎ HÀNG =====
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-<body>
+// thêm sản phẩm
+function add(name, price) {
+  cart.push({ name, price });
+  saveCart();
+  renderCart();
+  alert("🛒 Đã thêm " + name);
+}
 
-<!-- HEADER -->
-<div class="header">
-  <h2>📱 Dũng Phone</h2>
-  <p>📞 <a href="tel:0868968467">0868.968.467</a></p>
+// lưu
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
 
-  <div>
-    <a href="#home">Trang chủ</a>
-    <a href="#product">Sản phẩm</a>
-    <a href="#footer">Liên hệ</a>
-  </div>
-</div>
+// hiển thị giỏ
+function renderCart() {
+  let list = document.getElementById("cart-list");
+  let total = 0;
 
-<!-- HOME -->
-<div id="home" class="home">
-  <h1>🔥 Dũng Phone Store</h1>
-  <p>Chuyên iPhone giá rẻ - uy tín - bảo hành</p>
+  if (!list) return;
 
-  <div class="slider">
-    <img src="ip14.jpg" class="slide active">
-    <img src="ip15.jpg" class="slide">
-    <img src="ip13.jpg" class="slide">
-  </div>
+  list.innerHTML = "";
 
-  <br>
-  <a href="#product">
-    <button>Mua ngay</button>
-  </a>
-</div>
+  cart.forEach((item, index) => {
+    total += item.price;
 
-<!-- BANNER -->
-<div class="banner">
-  🔥 Sale sốc iPhone - Giá rẻ nhất hôm nay 🔥
-</div>
+    list.innerHTML += `
+      <p>${item.name} - ${item.price.toLocaleString()}đ 
+      <button onclick="removeItem(${index})">❌</button></p>
+    `;
+  });
 
-<!-- FLASH -->
-<div class="flash">
-  ⚡ Flash Sale kết thúc sau:
-  <span id="time" style="font-size:20px; color:yellow;">10:00</span>
-</div>
+  let countEl = document.getElementById("count");
+  let totalEl = document.getElementById("total");
 
-<!-- SEARCH -->
-<div class="tools">
-  <input type="text" id="search" placeholder="🔍 Tìm iPhone..." onkeyup="searchProduct()">
+  if (countEl) countEl.innerText = cart.length;
+  if (totalEl) totalEl.innerText = total.toLocaleString();
+}
 
-  <select onchange="filterPrice(this.value)">
-    <option value="all">Tất cả</option>
-    <option value="low">Dưới 5 triệu</option>
-    <option value="mid">5 - 15 triệu</option>
-    <option value="high">Trên 15 triệu</option>
-  </select>
-</div>
+// xoá sản phẩm
+function removeItem(i) {
+  cart.splice(i, 1);
+  saveCart();
+  renderCart();
+}
 
-<!-- CART -->
-<h2>🛒 Giỏ: <span id="count">0</span> | 💰 <span id="total">0</span>đ</h2>
-<button onclick="checkout()">💳 Thanh toán</button>
+// ===== LIKE =====
+function like(btn) {
+  btn.innerText = "💖";
+}
 
-<div id="cart-list"></div>
+// ===== XEM CHI TIẾT =====
+function viewDetail(name, price) {
+  document.getElementById("p-name").innerText = name;
+  document.getElementById("p-price").innerText = price.toLocaleString() + "đ";
+  document.getElementById("product-detail").style.display = "flex";
+}
 
-<!-- SẢN PHẨM -->
-<div id="product" class="container">
+function closeDetail() {
+  document.getElementById("product-detail").style.display = "none";
+}
 
-  <!-- CARD -->
-  <div class="card">
-    <img src="ip5.jpg" onclick="showDetail('iPhone 5',1200000)">
-    <h3>iPhone 5</h3>
-    <p>1.200.000</p>
-    <button onclick="add('iPhone 5',1200000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
+// ===== DARK MODE =====
+function darkMode() {
+  document.body.classList.toggle("dark");
+}
 
-  <!-- COPY thêm các card khác ở đây -->
+// ===== SEARCH =====
+function searchProduct() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
 
-</div>
+  cards.forEach(card => {
+    let name = card.dataset.name || "";
+    card.style.display = name.includes(input) ? "block" : "none";
+  });
+}
 
-<!-- POPUP -->
-<div id="product-detail" class="popup">
-  <div class="popup-box">
-    <h2 id="p-name"></h2>
-    <p id="p-price"></p>
-    <p>📱 Chính hãng Apple</p>
-    <p>🔋 Pin tốt - Bảo hành 6 tháng</p>
-    <button onclick="closeDetail()">Đóng</button>
-  </div>
-</div>
+// ===== FILTER =====
+function filterPrice(type) {
+  let cards = document.querySelectorAll(".card");
 
-<!-- FOOTER -->
-<div id="footer" class="footer">
-  <p>📞 Hotline: 0868.968.467</p>
-  <p>📍 Bắc Ninh</p>
-</div>
+  cards.forEach(card => {
+    let price = parseInt(card.dataset.price);
 
-<!-- NÚT GỌI -->
-<div class="call-btn">
-  <a href="tel:0868968467">📞</a>
-</div>
+    if (type === "low" && price < 5000000) card.style.display = "block";
+    else if (type === "mid" && price <= 15000000) card.style.display = "block";
+    else if (type === "high" && price > 15000000) card.style.display = "block";
+    else if (type === "all") card.style.display = "block";
+    else card.style.display = "none";
+  });
+}
 
-<!-- ZALO -->
-<div class="zalo-btn">
-  <a href="https://zalo.me/0868968467">💬</a>
-</div>
+// ===== NOTIFICATION =====
+setInterval(() => {
+  let products = ["iPhone 11", "iPhone 12", "iPhone 13", "iPhone 14"];
+  let p = products[Math.floor(Math.random() * products.length)];
 
-<script src="script.js"></script>
+  let noti = document.createElement("div");
+  noti.className = "noti";
+  noti.innerText = "🔥 Có người vừa mua " + p;
 
-</body>
-</html>
+  document.body.appendChild(noti);
+
+  setTimeout(() => noti.remove(), 3000);
+}, 5000);
+
+// ===== SLIDER =====
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  if (slides.length === 0) return;
+
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+
+// ===== FLASH SALE =====
+let time = 600;
+
+setInterval(() => {
+  let el = document.getElementById("time");
+  if (!el) return;
+
+  let m = Math.floor(time / 60);
+  let s = time % 60;
+
+  el.innerText = m + ":" + (s < 10 ? "0" + s : s);
+
+  if (time > 0) time--;
+}, 1000);
+
+// load lần đầu
+window.onload = renderCart;

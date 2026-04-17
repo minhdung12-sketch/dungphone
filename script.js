@@ -204,7 +204,7 @@ function removeItem(i) {
   renderCart();
 }
 
-renderCart();
+// chỉ cần 1 lần
 renderCart();
 
 let time = 600;

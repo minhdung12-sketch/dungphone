@@ -6,27 +6,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- HEADER -->
 <div class="header">
   <h2>📱 Dũng Phone Store</h2>
   <p>📞 <a href="tel:0868968467">0868.968.467</a></p>
-  
+
   <div>
     <a href="#">Trang chủ</a>
     <a href="#">Sản phẩm</a>
     <a href="#">Liên hệ</a>
   </div>
 </div>
+
 <h1>🍎 Dũng Apple</h1>
-  <button onclick="darkMode()">🌙</button>
+<button onclick="darkMode()">🌙</button>
+
 <div class="banner">
   🔥 Sale sốc iPhone - Giá rẻ nhất hôm nay 🔥
 </div>
+
 <h2>🛒 Giỏ: <span id="count">0</span> | 💰 <span id="total">0</span>đ</h2>
+
 <div id="cart-list"></div>
+
+<!-- SẢN PHẨM -->
 <div class="container">
 
+  <!-- MẪU CARD -->
+  <!-- COPY THÊM nếu cần -->
+  
   <div class="card">
-    <img src="ip5.jpg">
+    <img src="ip5.jpg" onclick="showDetail('iPhone 5',1200000)">
     <h3>iPhone 5</h3>
     <p>1.200.000</p>
     <button onclick="add('iPhone 5',1200000)">Mua</button>
@@ -34,7 +45,7 @@
   </div>
 
   <div class="card">
-    <img src="ip6.jpg">
+    <img src="ip6.jpg" onclick="showDetail('iPhone 6',2000000)">
     <h3>iPhone 6</h3>
     <p>2.000.000</p>
     <button onclick="add('iPhone 6',2000000)">Mua</button>
@@ -42,7 +53,7 @@
   </div>
 
   <div class="card">
-    <img src="ip7.jpg">
+    <img src="ip7.jpg" onclick="showDetail('iPhone 7',3000000)">
     <h3>iPhone 7</h3>
     <p>3.000.000</p>
     <button onclick="add('iPhone 7',3000000)">Mua</button>
@@ -50,7 +61,7 @@
   </div>
 
   <div class="card">
-    <img src="ip8.jpg">
+    <img src="ip8.jpg" onclick="showDetail('iPhone 8',4500000)">
     <h3>iPhone 8</h3>
     <p>4.500.000</p>
     <button onclick="add('iPhone 8',4500000)">Mua</button>
@@ -58,7 +69,7 @@
   </div>
 
   <div class="card">
-    <img src="ipx.jpg">
+    <img src="ipx.jpg" onclick="showDetail('iPhone X',6500000)">
     <h3>iPhone X</h3>
     <p>6.500.000</p>
     <button onclick="add('iPhone X',6500000)">Mua</button>
@@ -66,7 +77,7 @@
   </div>
 
   <div class="card">
-    <img src="ip11.jpg">
+    <img src="ip11.jpg" onclick="showDetail('iPhone 11',9500000)">
     <h3>iPhone 11</h3>
     <p>9.500.000</p>
     <button onclick="add('iPhone 11',9500000)">Mua</button>
@@ -74,7 +85,7 @@
   </div>
 
   <div class="card">
-    <img src="ip12.jpg">
+    <img src="ip12.jpg" onclick="showDetail('iPhone 12',13500000)">
     <h3>iPhone 12</h3>
     <p>13.500.000</p>
     <button onclick="add('iPhone 12',13500000)">Mua</button>
@@ -82,7 +93,7 @@
   </div>
 
   <div class="card">
-    <img src="ip13.jpg">
+    <img src="ip13.jpg" onclick="showDetail('iPhone 13',17500000)">
     <h3>iPhone 13</h3>
     <p>17.500.000</p>
     <button onclick="add('iPhone 13',17500000)">Mua</button>
@@ -90,7 +101,7 @@
   </div>
 
   <div class="card">
-    <img src="ip14.jpg">
+    <img src="ip14.jpg" onclick="showDetail('iPhone 14',21000000)">
     <h3>iPhone 14</h3>
     <p>21.000.000</p>
     <button onclick="add('iPhone 14',21000000)">Mua</button>
@@ -98,7 +109,7 @@
   </div>
 
   <div class="card">
-    <img src="ip15.jpg">
+    <img src="ip15.jpg" onclick="showDetail('iPhone 15',25000000)">
     <h3>iPhone 15</h3>
     <p>25.000.000</p>
     <button onclick="add('iPhone 15',25000000)">Mua</button>
@@ -106,7 +117,7 @@
   </div>
 
   <div class="card">
-    <img src="ip16.jpg">
+    <img src="ip16.jpg" onclick="showDetail('iPhone 16',30000000)">
     <h3>iPhone 16</h3>
     <p>30.000.000</p>
     <button onclick="add('iPhone 16',30000000)">Mua</button>
@@ -114,15 +125,16 @@
   </div>
 
   <div class="card">
-    <img src="ip17.jpg">
-    <h3>iPhone 17 </h3>
+    <img src="ip17.jpg" onclick="showDetail('iPhone 17',40000000)">
+    <h3>iPhone 17</h3>
     <p>40.000.000</p>
-    <button onclick="add('iPhone 17 ',40000000)">Mua</button>
+    <button onclick="add('iPhone 17',40000000)">Mua</button>
     <button onclick="like(this)">❤️</button>
   </div>
 
 </div>
 
+<!-- POPUP -->
 <div id="product-detail" class="popup">
   <div class="popup-box">
     <h2 id="p-name"></h2>
@@ -133,24 +145,24 @@
   </div>
 </div>
 
-<script src="script.js"></script>
-    <h2 id="p-name"></h2>
-    <p id="p-price"></p>
-    <p>📱 Sản phẩm chính hãng Apple</p>
-    <p>🔋 Pin tốt - Bảo hành 6 tháng</p>
-    <button onclick="closeDetail()">Đóng</button>
-  </div>
-</div>
-  <div class="footer">
+<!-- FOOTER -->
+<div class="footer">
   <p>📞 Hotline: 0868.968.467</p>
-  <p>📍 Địa chỉ: TựThôn-NamSơn-TPBắc Ninh </p>
+  <p>📍 Địa chỉ: TựThôn - NamSơn - TP Bắc Ninh</p>
 </div>
-  <div class="call-btn">
+
+<!-- NÚT GỌI -->
+<div class="call-btn">
   <a href="tel:0868968467">📞</a>
 </div>
-  <div class="zalo-btn">
-  <a href="https://zalo.me/0868968467" target="_blank">💬</a>
+
+<!-- ZALO -->
+<div class="zalo-btn">
+  <a href="https://zalo.me/0868968467">💬</a>
 </div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
 

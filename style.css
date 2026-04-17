@@ -4,35 +4,7 @@ body {
   background: #f5f5f5;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-
-.card {
-  width: 180px;
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-button {
-  width: 100%;
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-}
+/* HEADER */
 .header {
   background: black;
   color: white;
@@ -47,15 +19,50 @@ button {
   text-decoration: none;
 }
 
-.banner {
-  background: red;
+/* HOME */
+.home {
+  text-align: center;
+  padding: 40px;
+  background: black;
   color: white;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
 }
 
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  width: 180px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+/* BUTTON */
 button {
+  width: 100%;
   background: black;
   color: white;
   border: none;
@@ -67,22 +74,10 @@ button {
 button:hover {
   background: red;
 }
-.card img {
-  transition: 0.3s;
-}
 
-.card img:hover {
-  transform: scale(1.2);
-}
+/* CART */
 #cart-list {
-  background: #f5f5f5;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-}
-/* GIỎ HÀNG */
-#cart-list {
-  background: #f5f5f5;
+  background: #fff;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
@@ -90,13 +85,13 @@ button:hover {
 
 /* POPUP */
 .popup {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.5);
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -105,16 +100,6 @@ button:hover {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
-}
-
-/* HOVER CARD */
-.card {
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
 }
 
 /* DARK MODE */
@@ -122,105 +107,16 @@ button:hover {
   background: black;
   color: white;
 }
-.call-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: green;
-  color: white;
-  font-size: 24px;
-  padding: 15px;
-  border-radius: 50%;
-}
-.call-btn a {
-  color: white;
-  text-decoration: none;
-}
-.zalo-btn {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: blue;
-  color: white;
-  font-size: 24px;
-  padding: 15px;
-  border-radius: 50%;
-}
-.zalo-btn a {
-  color: white;
-  text-decoration: none;
-}
+
+/* CALL + ZALO */
 .call-btn, .zalo-btn {
+  position: fixed;
+  right: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
   animation: rung 1s infinite;
-}
-
-@keyframes rung {
-  0% { transform: rotate(0); }
-  25% { transform: rotate(10deg); }
-  50% { transform: rotate(0); }
-  75% { transform: rotate(-10deg); }
-  100% { transform: rotate(0); }
-}
-.zalo-btn {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: #0084ff;
-  color: white;
-  font-size: 24px;
-  padding: 15px;
-  border-radius: 50%;
-  z-index: 999;
-}
-
-.zalo-btn a {
-  color: white;
-  text-decoration: none;
-}
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.call-btn, .zalo-btn {
-  position: fixed;
-  right: 20px;
-  padding: 15px;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
 }
 
 .call-btn {
@@ -230,8 +126,23 @@ button:hover {
 
 .zalo-btn {
   bottom: 80px;
-  background: blue;
+  background: #0084ff;
 }
+
+.call-btn a, .zalo-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+@keyframes rung {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0); }
+}
+
+/* SEARCH + FILTER */
 .tools {
   margin: 20px;
   text-align: center;
@@ -242,6 +153,7 @@ button:hover {
   margin: 5px;
 }
 
+/* NOTIFICATION */
 .noti {
   position: fixed;
   left: 20px;
@@ -258,26 +170,6 @@ button:hover {
   20% {opacity: 1;}
   80% {opacity: 1;}
   100% {opacity: 0;}
-}
-.home {
-  text-align: center;
-  padding: 40px;
-  background: black;
-  color: white;
-}
-
-.home button {
-button {
-  padding: 10px 20px;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #cc0000;
 }
 
 /* SLIDER */
@@ -297,7 +189,7 @@ button:hover {
   display: block;
 }
 
-/* FLASH SALE */
+/* FLASH SALE XỊN */
 .flash {
   background: linear-gradient(90deg, red, orange);
   color: white;
@@ -307,17 +199,16 @@ button:hover {
   font-size: 18px;
   margin: 10px 0;
   border-radius: 5px;
-}
-@keyframes blink {
-  0% {opacity: 1;}
-  50% {opacity: 0.3;}
-  100% {opacity: 1;}
+  animation: blink 1.2s infinite;
 }
 
 .flash span {
-  animation: blink 1s infinite;
   font-weight: bold;
 }
-.flash {
-  animation: blink 1.5s infinite;
+
+/* NHẤP NHÁY */
+@keyframes blink {
+  0% {opacity: 1;}
+  50% {opacity: 0.4;}
+  100% {opacity: 1;}
 }

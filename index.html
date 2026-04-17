@@ -8,7 +8,7 @@
 <body>
 <div class="header">
   <h2>📱 Dũng Phone Store</h2>
-  <div id="cart-list"></div>
+  
   <div>
     <a href="#">Trang chủ</a>
     <a href="#">Sản phẩm</a>
@@ -16,11 +16,12 @@
   </div>
 </div>
 <h1>🍎 Dũng Apple</h1>
+  <button onclick="darkMode()">🌙</button>
 <div class="banner">
   🔥 Sale sốc iPhone - Giá rẻ nhất hôm nay 🔥
 </div>
 <h2>🛒 Giỏ: <span id="count">0</span> | 💰 <span id="total">0</span>đ</h2>
-
+<div id="cart-list"></div>
 <div class="container">
 
   <div class="card">
@@ -121,8 +122,9 @@
 
 </div>
 
+<div id="product-detail" class="popup">...</div>
+
 <script src="script.js"></script>
-  <div id="product-detail" class="popup">
   <div class="popup-box">
     <h2 id="p-name"></h2>
     <p id="p-price"></p>
@@ -133,4 +135,4 @@
 </div>
 </body>
 </html>
-<button onclick="darkMode()">🌙</button>
+

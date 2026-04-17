@@ -99,7 +99,13 @@ function viewDetail(name, price) {
 function closeDetail() {
   document.getElementById("product-detail").style.display = "none";
 }
-
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
 // ===== DARK MODE =====
 function darkMode() {
   document.body.classList.toggle("dark");

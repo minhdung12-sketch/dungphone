@@ -67,3 +67,16 @@ button {
 button:hover {
   background: red;
 }
+.card img {
+  transition: 0.3s;
+}
+
+.card img:hover {
+  transform: scale(1.2);
+}
+#cart-list {
+  background: #f5f5f5;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}

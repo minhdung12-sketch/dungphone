@@ -10,3 +10,12 @@ function add(name, price) {
 
   alert("Đã thêm: " + name);
 }
+function add(name, price) {
+  count++;
+  total += price;
+
+  document.getElementById("count").innerText = count;
+  document.getElementById("total").innerText = total.toLocaleString();
+
+  alert("🛒 Đã thêm " + name);
+}

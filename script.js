@@ -110,3 +110,12 @@ function closeDetail() {
 function darkMode() {
   document.body.classList.toggle("dark");
 }
+function showDetail(name, price) {
+  document.getElementById("product-detail").style.display = "flex";
+  document.getElementById("p-name").innerText = name;
+  document.getElementById("p-price").innerText = price.toLocaleString() + "đ";
+}
+
+function closeDetail() {
+  document.getElementById("product-detail").style.display = "none";
+}

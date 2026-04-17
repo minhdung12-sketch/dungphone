@@ -1,14 +1,12 @@
 let count = 0;
 let total = 0;
 
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 function add(name, price) {
-  count++;
-  total += price;
-
-  document.getElementById("count").innerText = count;
-  document.getElementById("total").innerText = total;
-
-  alert("Đã thêm: " + name);
+  cart.push({ name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
 }
 function add(name, price) {
   count++;
@@ -181,3 +179,29 @@ setInterval(() => {
 
   if (time > 0) time--;
 }, 1000);
+function renderCart() {
+  let list = document.getElementById("cart-list");
+  let total = 0;
+
+  list.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    list.innerHTML += `
+      <p>${item.name} - ${item.price.toLocaleString()}đ 
+      <button onclick="removeItem(${index})">❌</button></p>
+    `;
+  });
+
+  document.getElementById("count").innerText = cart.length;
+  document.getElementById("total").innerText = total.toLocaleString();
+}
+
+function removeItem(i) {
+  cart.splice(i, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();

@@ -5,6 +5,7 @@
   <title>Dũng Apple</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- HEADER -->
@@ -13,26 +14,42 @@
   <p>📞 <a href="tel:0868968467">0868.968.467</a></p>
 
   <div>
-<a href="#home">Trang chủ</a>
-<a href="#product">Sản phẩm</a>
-<a href="#footer">Liên hệ</a>
+    <a href="#home">Trang chủ</a>
+    <a href="#product">Sản phẩm</a>
+    <a href="#footer">Liên hệ</a>
   </div>
 </div>
 
-<h1>🍎 Dũng Apple</h1>
-<button onclick="darkMode()">🌙</button>
+<!-- HOME -->
+<div id="home" class="home">
+  <h1>🔥 Dũng Phone Store</h1>
+  <p>Chuyên iPhone giá rẻ - uy tín - bảo hành</p>
 
+  <div class="slider">
+    <img src="ip14.jpg" class="slide active">
+    <img src="ip15.jpg" class="slide">
+    <img src="ip13.jpg" class="slide">
+  </div>
+
+  <br>
+  <a href="#product">
+    <button>Mua ngay</button>
+  </a>
+</div>
+
+<!-- BANNER -->
 <div class="banner">
   🔥 Sale sốc iPhone - Giá rẻ nhất hôm nay 🔥
 </div>
 
+<!-- FLASH -->
 <div class="flash">
   ⚡ Flash Sale kết thúc sau:
- <span id="time" style="font-size:20px; color:yellow;">10:00</span>
+  <span id="time" style="font-size:20px; color:yellow;">10:00</span>
 </div>
-  🔥 Sale sốc iPhone - Giá rẻ nhất hôm nay 🔥
-</div>
-  <div class="tools">
+
+<!-- SEARCH -->
+<div class="tools">
   <input type="text" id="search" placeholder="🔍 Tìm iPhone..." onkeyup="searchProduct()">
 
   <select onchange="filterPrice(this.value)">
@@ -43,17 +60,16 @@
   </select>
 </div>
 
+<!-- CART -->
 <h2>🛒 Giỏ: <span id="count">0</span> | 💰 <span id="total">0</span>đ</h2>
-  <button onclick="checkout()">💳 Thanh toán</button>
+<button onclick="checkout()">💳 Thanh toán</button>
 
 <div id="cart-list"></div>
 
 <!-- SẢN PHẨM -->
 <div id="product" class="container">
 
-  <!-- MẪU CARD -->
-  <!-- COPY THÊM nếu cần -->
-  
+  <!-- CARD -->
   <div class="card">
     <img src="ip5.jpg" onclick="showDetail('iPhone 5',1200000)">
     <h3>iPhone 5</h3>
@@ -62,93 +78,7 @@
     <button onclick="like(this)">❤️</button>
   </div>
 
-  <div class="card">
-    <img src="ip6.jpg" onclick="showDetail('iPhone 6',2000000)">
-    <h3>iPhone 6</h3>
-    <p>2.000.000</p>
-    <button onclick="add('iPhone 6',2000000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip7.jpg" onclick="showDetail('iPhone 7',3000000)">
-    <h3>iPhone 7</h3>
-    <p>3.000.000</p>
-    <button onclick="add('iPhone 7',3000000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip8.jpg" onclick="showDetail('iPhone 8',4500000)">
-    <h3>iPhone 8</h3>
-    <p>4.500.000</p>
-    <button onclick="add('iPhone 8',4500000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ipx.jpg" onclick="showDetail('iPhone X',6500000)">
-    <h3>iPhone X</h3>
-    <p>6.500.000</p>
-    <button onclick="add('iPhone X',6500000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip11.jpg" onclick="showDetail('iPhone 11',9500000)">
-    <h3>iPhone 11</h3>
-    <p>9.500.000</p>
-    <button onclick="add('iPhone 11',9500000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip12.jpg" onclick="showDetail('iPhone 12',13500000)">
-    <h3>iPhone 12</h3>
-    <p>13.500.000</p>
-    <button onclick="add('iPhone 12',13500000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip13.jpg" onclick="showDetail('iPhone 13',17500000)">
-    <h3>iPhone 13</h3>
-    <p>17.500.000</p>
-    <button onclick="add('iPhone 13',17500000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip14.jpg" onclick="showDetail('iPhone 14',21000000)">
-    <h3>iPhone 14</h3>
-    <p>21.000.000</p>
-    <button onclick="add('iPhone 14',21000000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip15.jpg" onclick="showDetail('iPhone 15',25000000)">
-    <h3>iPhone 15</h3>
-    <p>25.000.000</p>
-    <button onclick="add('iPhone 15',25000000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip16.jpg" onclick="showDetail('iPhone 16',30000000)">
-    <h3>iPhone 16</h3>
-    <p>30.000.000</p>
-    <button onclick="add('iPhone 16',30000000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
-
-  <div class="card">
-    <img src="ip17.jpg" onclick="showDetail('iPhone 17',40000000)">
-    <h3>iPhone 17</h3>
-    <p>40.000.000</p>
-    <button onclick="add('iPhone 17',40000000)">Mua</button>
-    <button onclick="like(this)">❤️</button>
-  </div>
+  <!-- COPY thêm các card khác ở đây -->
 
 </div>
 
@@ -157,7 +87,7 @@
   <div class="popup-box">
     <h2 id="p-name"></h2>
     <p id="p-price"></p>
-    <p>📱 Sản phẩm chính hãng Apple</p>
+    <p>📱 Chính hãng Apple</p>
     <p>🔋 Pin tốt - Bảo hành 6 tháng</p>
     <button onclick="closeDetail()">Đóng</button>
   </div>
@@ -166,7 +96,7 @@
 <!-- FOOTER -->
 <div id="footer" class="footer">
   <p>📞 Hotline: 0868.968.467</p>
-  <p>📍 Địa chỉ: TựThôn - NamSơn - TP Bắc Ninh</p>
+  <p>📍 Bắc Ninh</p>
 </div>
 
 <!-- NÚT GỌI -->
@@ -182,25 +112,4 @@
 <script src="script.js"></script>
 
 </body>
-<div id="home" class="home">
-
-  <h1>🔥 Dũng Phone Store</h1>
-  <p>Chuyên iPhone giá rẻ - uy tín - bảo hành</p>
-
-  <!-- SLIDER -->
-  <div class="slider">
-    <img src="ip14.jpg" class="slide active">
-    <img src="ip15.jpg" class="slide">
-    <img src="ip13.jpg" class="slide">
-  </div>
-
-  <br>
-  <a href="#product">
-    <button>Mua ngay</button>
-  </a>
-
-</div>
-  <img src="tomahu.jpg" width="300">
-</div>
 </html>
-
